@@ -43,6 +43,7 @@
                             <button type="submit" class="btn btn-warning">Return</button>
                         </form>
                     </td>
+                                                {{--     Just for display as User borrowed     --}}
                     <td>@if($status == \App\Enums\BorrowingStatus::APPROVED)<a href="#">Download now</a>@endif</td>
 
                 </tr>
