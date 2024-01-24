@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
             'authors' => \App\Http\Controllers\Admin\AuthorController::class,
             'book-categories' => \App\Http\Controllers\Admin\BookCategoryController::class,
             'borrow-histories' => \App\Http\Controllers\Admin\BorrowHistoryController::class,
+            'users' => \App\Http\Controllers\Admin\UserController::class,
         ]);
 
         Route::post('/books/{id}/book-borrowing/approve', \App\Http\Controllers\Admin\BookBorrowingApproveController::class)->name('book-borrowing.approve');

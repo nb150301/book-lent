@@ -12,6 +12,7 @@
                                 <p class="mb-0"><a href="{{ route('authors.index') }}" class="navbar-brand">Authors</a></p>
                                 <p class="mb-0"><a href="{{ route('book-categories.index') }}" class="navbar-brand">Book Categories</a></p>
                                 <p class="mb-0"><a href="{{ route('borrow-histories.index') }}" class="navbar-brand">Borrow Histories</a></p>
+                                <p class="mb-0"><a href="{{ route('users.index') }}" class="navbar-brand">Users</a></p>
                             </nav>
                         </div>
                     </div>

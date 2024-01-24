@@ -55,7 +55,7 @@ class User extends Authenticatable
     public function borrowingBooksDidNotReturn(): HasMany
     {
         return $this->hasMany(BorrowHistory::class)
-            ->where('return_acquired_at', '!=', null);
+            ->where('status', '=', BorrowingStatus::APPROVED);
     }
 
     public function orderingBook(): HasMany
