@@ -16,10 +16,12 @@ class BookBorrowingReturnController extends Controller
     {
         $borrowingHistory = BorrowHistory::find($id);
 
-        $borrowingHistory->update([
-            'status' => BorrowingStatus::RETURNED,
-            'return_acquired_at' => Carbon::now(),
-        ]);
+        if ($borrowingHistory->status == BorrowingStatus::PENDING) {
+            $borrowingHistory->update([
+                'status' => BorrowingStatus::RETURNED,
+                'return_acquired_at' => Carbon::now(),
+            ]);
+        }
 
         return redirect()->back();
     }

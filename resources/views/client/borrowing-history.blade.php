@@ -1,6 +1,6 @@
-@extends('layouts.admin')
+@extends('layouts.client')
 
-@section('admin')
+@section('client')
     <div class="card-body">
         <table class="table">
             <thead>
@@ -14,6 +14,7 @@
                 <th scope="col">Return acquired at</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -42,13 +43,11 @@
                             <button type="submit" class="btn btn-warning">Return</button>
                         </form>
                     </td>
+                    <td>@if($status == \App\Enums\BorrowingStatus::APPROVED)<a href="#">Download now</a>@endif</td>
+
                 </tr>
             @endforeach
             </tbody>
         </table>
-
-        <button type="button" class="btn btn-primary">
-            <a class="text-white text-decoration-none" href="{{ route('books.create') }}">Create new</a>
-        </button>
     </div>
 @endsection
