@@ -3,7 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\BorrowingStatus;
+use App\Http\Controllers\Admin\BorrowHistoryController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -42,4 +46,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function borrows(): HasMany
+    {
+        return $this->hasMany(BorrowHistory::class);
+    }
+
+    public function borrowingBooksDidNotReturn(): HasMany
+    {
+        return $this->hasMany(BorrowHistory::class)
+            ->where('return_acquired_at', '!=', null);
+    }
+
+    public function orderingBook(): HasMany
+    {
+        return $this->hasMany(BorrowHistory::class)
+            ->where('status', '=', BorrowingStatus::PENDING);
+    }
+
+    public function borrowingHistories(): HasMany
+    {
+        return $this->hasMany(BorrowHistory::class);
+    }
 }
