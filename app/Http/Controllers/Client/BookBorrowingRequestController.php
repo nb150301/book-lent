@@ -5,16 +5,10 @@ namespace App\Http\Controllers\Client;
 use App\Enums\BorrowingStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BorrowingBookRequest;
-use App\Mail\NotifReturnBook;
 use App\Models\Book;
 use App\Models\BorrowHistory;
-use App\Models\User;
 use App\Services\BookBorrowingService;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class BookBorrowingRequestController extends Controller
 {

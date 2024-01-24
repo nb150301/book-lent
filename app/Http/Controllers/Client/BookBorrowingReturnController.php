@@ -6,7 +6,6 @@ use App\Enums\BorrowingStatus;
 use App\Http\Controllers\Controller;
 use App\Models\BorrowHistory;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class BookBorrowingReturnController extends Controller
 {

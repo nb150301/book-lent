@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthorRequest;
 use App\Models\Author;
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 
 class AuthorController extends Controller
 {

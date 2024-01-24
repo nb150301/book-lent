@@ -7,7 +7,6 @@ use App\Http\Requests\BookRequest;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\BookCategory;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
 class BookController extends Controller

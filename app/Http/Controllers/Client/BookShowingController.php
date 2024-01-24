@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Services\BookBorrowingService;
-use Illuminate\Http\Request;
 
 class BookShowingController extends Controller
 {

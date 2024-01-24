@@ -28,8 +28,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::post('/books/{id}/book-borrowing', \App\Http\Controllers\Client\BookBorrowingRequestController::class)->name('client.borrowing');
-//    , 'middleware' => 'isAdmin'
-    Route::group(['prefix' => 'admin'], function () {
+    Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
         Route::resources([
             'books' => \App\Http\Controllers\Admin\BookController::class,
             'authors' => \App\Http\Controllers\Admin\AuthorController::class,

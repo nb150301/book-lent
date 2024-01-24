@@ -2,10 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use App\Enums\UserRole;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class CheckAdmin
 {
@@ -17,6 +19,11 @@ class CheckAdmin
     public function handle(Request $request, Closure $next): Response
     {
         $user = Auth::user();
-        return $next($request);
+
+        if ($user->role == UserRole::ADMIN) {
+            return $next($request);
+        }
+
+        throw new AccessDeniedHttpException();
     }
 }
